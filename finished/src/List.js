@@ -2,7 +2,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import React, { useState } from 'react'
 
 export const List = () => {
-  const finalSpaceCharacters = [
+  const todoItems = [
     {
       id: 'car-wash',
       name: '🚌 | Car wash',
@@ -25,24 +25,24 @@ export const List = () => {
     }
   ]
 
-  const [characters, updateCharacters] = useState(finalSpaceCharacters)
+  const [todos, updateTodos] = useState(todoItems)
 
   const handleOnDragEnd = (result) => {
     if (!result.destination) return
     // console.log(result)
-    const items = Array.from(characters)
+    const items = Array.from(todos)
     const [reorderedItem] = items.splice(result.source.index,  1)
     items.splice(result.destination.index, 0, reorderedItem)
 
-    updateCharacters(items)
+    updateTodos(items)
   }
 
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
-      <Droppable droppableId="characters">
+      <Droppable droppableId="todos">
         {(provided) => (
           <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-            {characters.map(({id, name }, index) => {
+            {todos.map(({id, name }, index) => {
               return (
                 <Draggable key={id} draggableId={id} index={index}>
                   {(provided) => (
