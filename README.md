@@ -1,6 +1,6 @@
 # React Demo: Drag and Drop Todo List
 
-![react drop and drop](drag-n-drop.gif)
+![react drop and drop](drag-n-drop.gif?raw=true)
 
 Article:
 [React Tutorial: Drag and Drop](https://patzhong.com/blog/react-drag-drop)
